@@ -1,4 +1,9 @@
 package app.clodio.screens
 
-class Home {
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+
+@Composable
+fun Home() {
+    Text("Home Screen!")
 }
