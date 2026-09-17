@@ -20,26 +20,41 @@ fun Home() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        LazyColumn(
-            modifier = Modifier
-                .offset(y = 100.dp)
-                .size(width = 350.dp, height = 500.dp)
-                .background(
-                    Color.DarkGray,
-                    shape = RoundedCornerShape(10.dp)
-                ),
-            verticalArrangement = Arrangement.spacedBy(20.dp)
-        ) {
-            val randomAlarms: List<Alarm> = (1..10).map{getRandomAlarm()}
+        AlarmList()
+    }
+}
 
-            items(randomAlarms) { alarm ->
-                Text(alarm.name)
-            }
+@Composable
+fun AlarmList() {
+    LazyColumn(
+        modifier = Modifier
+            .offset(y = 100.dp)
+            .size(width = 350.dp, height = 500.dp)
+            .background(
+                Color.DarkGray,
+                shape = RoundedCornerShape(10.dp)
+            ),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
+        val randomAlarms: List<Alarm> = (1..10).map{getRandomAlarm()}
+
+        items(randomAlarms) { alarm ->
+            AlarmBox(alarm)
         }
     }
 }
 
 @Composable
 fun AlarmBox(alarm : Alarm) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .background(
+                Color.LightGray,
+                shape = RoundedCornerShape(10.dp)
+            )
+    ) {
 
+    }
 }
