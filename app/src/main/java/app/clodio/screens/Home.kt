@@ -3,27 +3,36 @@ package app.clodio.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import app.clodio.model.Alarm
+import app.clodio.model.Alarm.Companion.getRandomAlarm
 
 @Composable
 fun Home() {
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
         LazyColumn(
             modifier = Modifier
-                .offset(x = 10.dp, y = 100.dp)
-                .size(width = 450.dp, height = 500.dp)
+                .offset(y = 100.dp)
+                .size(width = 350.dp, height = 500.dp)
                 .background(
                     Color.DarkGray,
                     shape = RoundedCornerShape(10.dp))
         ) {
+            val randomAlarms: List<Alarm> = (1..10).map{getRandomAlarm()}
 
+            items(randomAlarms) { alarm ->
+                Text(alarm.name)
+            }
         }
     }
 }
