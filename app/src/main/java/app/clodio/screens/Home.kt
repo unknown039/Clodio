@@ -26,7 +26,9 @@ fun Home() {
                 .size(width = 350.dp, height = 500.dp)
                 .background(
                     Color.DarkGray,
-                    shape = RoundedCornerShape(10.dp))
+                    shape = RoundedCornerShape(10.dp)
+                ),
+            verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             val randomAlarms: List<Alarm> = (1..10).map{getRandomAlarm()}
 
@@ -35,4 +37,9 @@ fun Home() {
             }
         }
     }
+}
+
+@Composable
+fun AlarmBox(alarm : Alarm) {
+
 }
